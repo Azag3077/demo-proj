@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../components/buttons.dart';
 import '../components/page_indicator.dart';
+import '../core/constants/assets.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -46,18 +48,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                   fit: StackFit.expand,
                                   children: <Widget>[
                                     Image.asset(
-                                        'assets/png/stacked-ellipses.png'),
+                                        AssetImages.png.stackedEllipses),
                                     Positioned(
                                       left: -20.0,
                                       bottom: -15.0,
                                       child: Image.asset(
-                                          'assets/png/left-brain.png'),
+                                          AssetImages.png.leftBrain),
                                     ),
                                     Positioned(
                                       right: -24.0,
                                       bottom: -38.0,
                                       child: Image.asset(
-                                          'assets/png/right-brain.png'),
+                                          AssetImages.png.rightBrain),
                                     ),
                                     const Icon(
                                       Icons.play_arrow,

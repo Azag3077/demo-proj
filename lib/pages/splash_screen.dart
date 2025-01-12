@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:helper/pages/welcome_screen.dart';
 
-class SplashScreen extends StatefulWidget {
+import '../core/constants/assets.dart';
+import 'welcome_screen.dart';
+
+class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 2), navigateToNextScreen);
-    super.initState();
-  }
-
-  void navigateToNextScreen() {
-    if (!mounted) return;
+  Future<void> _navigateToNextScreen(BuildContext context) async {
+    await Future.delayed(.5.seconds);
+    if (!context.mounted) return;
 
     final route = MaterialPageRoute(builder: (_) => const WelcomeScreen());
     Navigator.pushReplacement(context, route);
@@ -31,7 +24,27 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Spacer(),
-            SvgPicture.asset('assets/svg/splash_logo.svg'),
+            Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                SvgPicture.asset(AssetImages.svgs.splashLogo)
+                    .animate()
+                    .fadeOut(delay: 2.seconds, duration: 1.2.seconds),
+                Image.asset(AssetImages.png.icon)
+                    .animate()
+                    .fadeIn(delay: 2.6.seconds, duration: 1.2.seconds)
+                    .fadeOut(delay: 4.6.seconds, duration: 1.2.seconds),
+                Image.asset(AssetImages.png.icon)
+                    .animate(onComplete: (_) => _navigateToNextScreen(context))
+                    .moveX(
+                      begin: 200.0,
+                      delay: 5.seconds,
+                      duration: 1.2.seconds,
+                      curve: Curves.easeInOutCubic,
+                    )
+                    .fadeIn(duration: 1000.ms),
+              ],
+            ),
             const Spacer(),
             Text(
               'Available on streaming devices',
