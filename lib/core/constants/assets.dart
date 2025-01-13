@@ -6,7 +6,7 @@ class AssetImages {
 class _PngAssetsName {
   static const _root = 'assets/images/png';
 
-  final icon = '$_root/icon.png';
+  // final icon = '$_root/icon.png';
   final leftBrain = '$_root/left-brain.png';
   final rightBrain = '$_root/right-brain.png';
   final stackedEllipses = '$_root/stacked-ellipses.png';
@@ -15,5 +15,6 @@ class _PngAssetsName {
 class _SvgAssetsName {
   static const _root = 'assets/images/svg';
 
+  final logo = '$_root/logo.svg';
   final splashLogo = '$_root/splash_logo.svg';
 }

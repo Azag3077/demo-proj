@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 import '../components/buttons.dart';
 import '../components/page_indicator.dart';
 import '../core/constants/assets.dart';
+import 'demo_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -109,8 +109,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: <Widget>[
                     CustomOutlinedButton(
                       text: 'Continue with Google',
-                      onPressed: () {},
                       iconData: Icons.email,
+                      onPressed: () {
+                        final route = MaterialPageRoute(
+                            builder: (_) => const DemoScreen());
+                        Navigator.push(context, route);
+                      },
                     ),
                     const SizedBox(height: 16.0),
                     CustomOutlinedButton(

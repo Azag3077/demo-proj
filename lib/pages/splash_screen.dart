@@ -30,11 +30,11 @@ class SplashScreen extends StatelessWidget {
                 SvgPicture.asset(AssetImages.svgs.splashLogo)
                     .animate()
                     .fadeOut(delay: 2.seconds, duration: 1.2.seconds),
-                Image.asset(AssetImages.png.icon)
+                SvgPicture.asset(AssetImages.svgs.logo)
                     .animate()
                     .fadeIn(delay: 2.6.seconds, duration: 1.2.seconds)
                     .fadeOut(delay: 4.6.seconds, duration: 1.2.seconds),
-                Image.asset(AssetImages.png.icon)
+                SvgPicture.asset(AssetImages.svgs.logo)
                     .animate(onComplete: (_) => _navigateToNextScreen(context))
                     .moveX(
                       begin: 200.0,

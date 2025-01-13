@@ -20,7 +20,7 @@ class CustomOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       height: 56.0,
       color: backgroundColor,
       shape: RoundedRectangleBorder(
